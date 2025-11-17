@@ -8,6 +8,12 @@ import { checkIntervalMinutes } from './config.js';
 
 async function monitor() {
     let state = loadState();
+    
+    if (!state) {
+        state = { crash: false };
+        saveState(state);
+    }
+
     const healthy = await checkDB();
 
     if (healthy) {
