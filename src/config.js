@@ -17,4 +17,4 @@ export const pihole = {
 };
 
 export const checkIntervalMinutes = parseInt(process.env.CHECK_INTERVAL_MINUTES) || 10;
-export const stateFile = '/tmp/pihole-monitor.state.json';
+export const stateFile = './tmp/pihole-monitor.state.json';
