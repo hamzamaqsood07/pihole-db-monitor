@@ -1,0 +1,20 @@
+{
+  "name": "pihole-db-monitor",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@slack/webhook": "^7.0.6",
+    "dotenv": "^17.2.3",
+    "nodemailer": "^7.0.10",
+    "sqlite3": "^5.1.7"
+  }
+}
