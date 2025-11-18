@@ -2,13 +2,13 @@ import { checkDB } from './pihole/checker.js';
 import { repairDB } from './pihole/repair.js';
 import { sendEmail } from './notifier/email.js';
 import { sendSlack } from './notifier/slack.js';
-import { log } from './logger.js';
+import { log, error } from './logger.js';
 import { loadState, saveState } from './state.js';
 import { checkIntervalMinutes } from './config.js';
 
 async function monitor() {
     let state = loadState();
-    
+
     if (!state) {
         state = { crash: false };
         saveState(state);
@@ -42,8 +42,7 @@ async function monitor() {
         state.crash = false;
         saveState(state);
     } else {
-        sendEmail('Pi-hole DB recovery failed', 'Automatic repair failed ❌');
-        // await sendSlack('Pi-hole database recovery failed ❌');
+        error('Pi-hole DB recovery failed', 'Automatic repair failed ❌');
     }
 }
 
